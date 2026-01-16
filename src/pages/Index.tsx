@@ -26,6 +26,35 @@ const menuItems: MenuItem[] = [
   { id: 2, name: 'Калифорния', nameJp: 'カリフォルニア', description: 'Краб, авокадо, огурец, икра тобико', price: 420, category: 'rolls', image: '🍣' },
   { id: 3, name: 'Спайси тунец', nameJp: 'スパイシーツナ', description: 'Тунец, острый соус, зелёный лук', price: 480, category: 'rolls', image: '🍣' },
   { id: 4, name: 'Дракон', nameJp: 'ドラゴン', description: 'Угорь, авокадо, икра масаго', price: 520, category: 'rolls', image: '🍣' },
+  
+  { id: 100, name: 'Запеченный с лососем', nameJp: '', description: 'Рис, нори, лосось, огурец, сырная шапочка', price: 490, category: 'baked', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-55.jpg' },
+  { id: 101, name: 'Запеченный с курицей', nameJp: '', description: 'Рис, нори, помидор, курица, сырная шапочка', price: 470, category: 'baked', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-55.jpg' },
+  { id: 102, name: 'Запеченный с креветкой', nameJp: '', description: 'Рис, нори, креветка, огурец, сырная шапочка', price: 460, category: 'baked', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-55.jpg' },
+  { id: 103, name: 'Запеченный с крабом', nameJp: '', description: 'Рис, нори, краб, огурец, сырная шапочка', price: 470, category: 'baked', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-55.jpg' },
+  { id: 104, name: 'Ойси', nameJp: '', description: 'Рис, нори, лосось, икра томаго, икра тобико, огурец, сырная шапочка', price: 490, category: 'baked', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-55.jpg' },
+  { id: 105, name: 'Бостон', nameJp: '', description: 'Рис, нори, бекон, огурец, зеленый лук, сырная шапочка', price: 480, category: 'baked', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-55.jpg' },
+
+  { id: 200, name: 'Филадельфия сет', nameJp: '', description: 'Филадельфия, Филадельфия с огурцом, Филадельфия с креветкой', price: 1470, category: 'sets', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-51.jpg' },
+  { id: 201, name: 'Запеченные ходоки', nameJp: '', description: 'Запеченный с лососем, Запеченный с креветкой, Ойси, Бостон', price: 1700, category: 'sets', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-51.jpg' },
+  { id: 202, name: 'Выгодный', nameJp: '', description: 'Ролл Бамбик, Сяке маки, Сувики, Киото', price: 1440, category: 'sets', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-51.jpg' },
+  { id: 203, name: 'Сет Мини', nameJp: '', description: 'Калифорния Чиз, Краб крем ролл, Каппа маки', price: 1200, category: 'sets', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-51.jpg' },
+  { id: 204, name: 'Горячий хит', nameJp: '', description: 'Патай, Сяке темпура, Эби темпура, Запеченный с крабом, Запеченный с курицей, Запеченный с креветкой', price: 2750, category: 'sets', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-51.jpg' },
+  { id: 205, name: 'Сет Популярный', nameJp: '', description: 'Филадельфия с огурцом, Калифорния с креветкой, Лава сяке, Чикен фри, Томаго темпура, Краб темпура, Эби темпура, Сяке темпура', price: 3750, category: 'sets', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-51.jpg' },
+
+  { id: 300, name: 'Пепперони', nameJp: '', description: 'Пепперони, сыр, помидоры, соус', price: 630, category: 'pizza', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-41.jpg' },
+  { id: 301, name: 'Охотничья', nameJp: '', description: 'Охотничьи колбаски, сыр, помидоры, грибы, соус', price: 630, category: 'pizza', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-41.jpg' },
+  { id: 302, name: 'Чикен', nameJp: '', description: 'Курица гриль, маринованные огурцы, помидоры, соус чикен', price: 630, category: 'pizza', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-41.jpg' },
+  { id: 303, name: 'Мясное ассорти', nameJp: '', description: 'Курица гриль, ветчина, охотничьи колбаски, сыр, маслины, соус, бекон', price: 750, category: 'pizza', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-41.jpg' },
+  { id: 304, name: 'Карбонара', nameJp: '', description: 'Бекон, соус, яичный соус, сыр моцарелла', price: 600, category: 'pizza', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-48.jpg' },
+  { id: 305, name: 'Катанья', nameJp: '', description: 'Бекон, сырный соус, шампиньоны, маслины, сыр моцарелла', price: 650, category: 'pizza', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-48.jpg' },
+  { id: 306, name: 'Вилаяно', nameJp: '', description: 'Сладкий перец, шампиньоны, ветчина, сыр моцарелла', price: 650, category: 'pizza', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-48.jpg' },
+  { id: 307, name: 'Гавайская', nameJp: '', description: 'Ананас, ветчина, куриное филе, сыр моцарелла, соус', price: 680, category: 'pizza', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-48.jpg' },
+  { id: 308, name: 'Сырная', nameJp: '', description: 'Сырный соус, сыр моцарелла', price: 580, category: 'pizza', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-48.jpg' },
+
+  { id: 400, name: 'Шаурма Классическая', nameJp: '', description: 'Лаваш, курица, капуста, картофель фри, огурец, помидор, соус', price: 250, category: 'shawarma', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-38.jpg' },
+  { id: 401, name: 'Шаурма По-братски', nameJp: '', description: 'Лаваш, курица, картофель фри, лук маринованный, помидор, соус', price: 270, category: 'shawarma', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-38.jpg' },
+  { id: 402, name: 'Шаурма Сырная', nameJp: '', description: 'Свежие овощи, курица, 2 вида сыра, лук маринованный, сырный соус, томатный соус', price: 270, category: 'shawarma', image: 'https://cdn.poehali.dev/files/photo_2026-01-16_12-45-38.jpg' },
+
   { id: 5, name: 'Нигири лосось', nameJp: '鮭の握り', description: 'Рис, свежий лосось', price: 180, category: 'nigiri', image: '🍣' },
   { id: 6, name: 'Нигири тунец', nameJp: 'マグロの握り', description: 'Рис, свежий тунец', price: 200, category: 'nigiri', image: '🍣' },
   { id: 7, name: 'Нигири угорь', nameJp: 'うなぎの握り', description: 'Рис, угорь, соус унаги', price: 190, category: 'nigiri', image: '🍣' },
@@ -44,7 +73,7 @@ const reviews = [
 
 const Index = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [activeCategory, setActiveCategory] = useState('rolls');
+  const [activeCategory, setActiveCategory] = useState('pizza');
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const addToCart = (item: MenuItem) => {
@@ -181,11 +210,39 @@ const Index = () => {
 
         <div className="flex justify-center gap-2 mb-8 flex-wrap">
           <Button 
+            variant={activeCategory === 'pizza' ? 'default' : 'outline'}
+            onClick={() => setActiveCategory('pizza')}
+            className={activeCategory === 'pizza' ? 'bg-red-600 hover:bg-red-700' : ''}
+          >
+            🍕 Пицца
+          </Button>
+          <Button 
+            variant={activeCategory === 'shawarma' ? 'default' : 'outline'}
+            onClick={() => setActiveCategory('shawarma')}
+            className={activeCategory === 'shawarma' ? 'bg-red-600 hover:bg-red-700' : ''}
+          >
+            🌯 Шаурма
+          </Button>
+          <Button 
+            variant={activeCategory === 'sets' ? 'default' : 'outline'}
+            onClick={() => setActiveCategory('sets')}
+            className={activeCategory === 'sets' ? 'bg-red-600 hover:bg-red-700' : ''}
+          >
+            🍱 Сеты
+          </Button>
+          <Button 
+            variant={activeCategory === 'baked' ? 'default' : 'outline'}
+            onClick={() => setActiveCategory('baked')}
+            className={activeCategory === 'baked' ? 'bg-red-600 hover:bg-red-700' : ''}
+          >
+            🔥 Запеченные
+          </Button>
+          <Button 
             variant={activeCategory === 'rolls' ? 'default' : 'outline'}
             onClick={() => setActiveCategory('rolls')}
             className={activeCategory === 'rolls' ? 'bg-red-600 hover:bg-red-700' : ''}
           >
-            Роллы
+            🍣 Роллы
           </Button>
           <Button 
             variant={activeCategory === 'nigiri' ? 'default' : 'outline'}
@@ -214,9 +271,13 @@ const Index = () => {
           {filteredItems.map(item => (
             <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow">
               <div className="p-6">
-                <div className="text-6xl mb-4 text-center">{item.image}</div>
+                {item.image.startsWith('http') ? (
+                  <img src={item.image} alt={item.name} className="w-full h-48 object-cover rounded-lg mb-4" />
+                ) : (
+                  <div className="text-6xl mb-4 text-center">{item.image}</div>
+                )}
                 <h3 className="text-xl font-bold mb-1">{item.name}</h3>
-                <p className="text-sm text-gray-500 mb-2">{item.nameJp}</p>
+                {item.nameJp && <p className="text-sm text-gray-500 mb-2">{item.nameJp}</p>}
                 <p className="text-sm text-gray-600 mb-4">{item.description}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-red-600">{item.price} ₽</span>
