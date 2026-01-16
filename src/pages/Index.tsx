@@ -268,20 +268,33 @@ const Index = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map(item => (
-            <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+          {filteredItems.map((item, index) => (
+            <Card 
+              key={item.id} 
+              className="overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-fade-in-up group"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
               <div className="p-6">
-                {item.image.startsWith('http') ? (
-                  <img src={item.image} alt={item.name} className="w-full h-48 object-cover rounded-lg mb-4" />
-                ) : (
-                  <div className="text-6xl mb-4 text-center">{item.image}</div>
-                )}
-                <h3 className="text-xl font-bold mb-1">{item.name}</h3>
+                <div className="overflow-hidden rounded-lg mb-4">
+                  {item.image.startsWith('http') ? (
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" 
+                    />
+                  ) : (
+                    <div className="text-6xl text-center transition-transform duration-300 group-hover:scale-110">{item.image}</div>
+                  )}
+                </div>
+                <h3 className="text-xl font-bold mb-1 group-hover:text-red-600 transition-colors">{item.name}</h3>
                 {item.nameJp && <p className="text-sm text-gray-500 mb-2">{item.nameJp}</p>}
                 <p className="text-sm text-gray-600 mb-4">{item.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-red-600">{item.price} ₽</span>
-                  <Button onClick={() => addToCart(item)} className="bg-red-600 hover:bg-red-700">
+                  <span className="text-2xl font-bold text-red-600 animate-pulse">{item.price} ₽</span>
+                  <Button 
+                    onClick={() => addToCart(item)} 
+                    className="bg-red-600 hover:bg-red-700 hover:scale-105 transition-transform duration-200"
+                  >
                     <Icon name="Plus" size={16} className="mr-1" />
                     В корзину
                   </Button>
