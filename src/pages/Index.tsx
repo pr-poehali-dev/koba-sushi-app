@@ -124,7 +124,6 @@ const Index = () => {
           
           <nav className="hidden md:flex gap-6">
             <a href="#menu" className="text-gray-700 hover:text-red-600 transition-colors">Меню</a>
-            <a href="#gallery" className="text-gray-700 hover:text-red-600 transition-colors">Галерея</a>
             <a href="#delivery" className="text-gray-700 hover:text-red-600 transition-colors">Доставка</a>
             <a href="#reviews" className="text-gray-700 hover:text-red-600 transition-colors">Отзывы</a>
             <a href="#contacts" className="text-gray-700 hover:text-red-600 transition-colors">Контакты</a>
@@ -300,47 +299,33 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="gallery" className="py-16 bg-gray-50">
+      <section id="delivery" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-2">Галерея</h2>
-            <p className="text-gray-600">ギャラリー</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-2">Доставка</h2>
+            <p className="text-gray-600">配達</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['🍣', '🍱', '🍜', '🍙', '🥟', '🍵', '🍶', '🥢'].map((emoji, i) => (
-              <div key={i} className="aspect-square bg-white rounded-lg flex items-center justify-center text-8xl hover:scale-105 transition-transform shadow-md">
-                {emoji}
-              </div>
-            ))}
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <Card className="p-6 text-center">
+              <Icon name="Clock" size={48} className="mx-auto mb-4 text-red-600" />
+              <h3 className="text-xl font-bold mb-2">45 минут</h3>
+              <p className="text-gray-600">Среднее время доставки</p>
+            </Card>
+            <Card className="p-6 text-center">
+              <Icon name="MapPin" size={48} className="mx-auto mb-4 text-red-600" />
+              <h3 className="text-xl font-bold mb-2">Бесплатно</h3>
+              <p className="text-gray-600">При заказе от 1000 ₽</p>
+            </Card>
+            <Card className="p-6 text-center">
+              <Icon name="Phone" size={48} className="mx-auto mb-4 text-red-600" />
+              <h3 className="text-xl font-bold mb-2">Онлайн заказ</h3>
+              <p className="text-gray-600">Через наше приложение</p>
+            </Card>
           </div>
         </div>
       </section>
 
-      <section id="delivery" className="py-16 container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-2">Доставка</h2>
-          <p className="text-gray-600">配達</p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <Card className="p-6 text-center">
-            <Icon name="Clock" size={48} className="mx-auto mb-4 text-red-600" />
-            <h3 className="text-xl font-bold mb-2">45 минут</h3>
-            <p className="text-gray-600">Среднее время доставки</p>
-          </Card>
-          <Card className="p-6 text-center">
-            <Icon name="MapPin" size={48} className="mx-auto mb-4 text-red-600" />
-            <h3 className="text-xl font-bold mb-2">Бесплатно</h3>
-            <p className="text-gray-600">При заказе от 1000 ₽</p>
-          </Card>
-          <Card className="p-6 text-center">
-            <Icon name="Phone" size={48} className="mx-auto mb-4 text-red-600" />
-            <h3 className="text-xl font-bold mb-2">Онлайн заказ</h3>
-            <p className="text-gray-600">Через наше приложение</p>
-          </Card>
-        </div>
-      </section>
-
-      <section id="reviews" className="py-16 bg-gray-50">
+      <section id="reviews" className="py-16 container mx-auto px-4">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-2">Отзывы</h2>
