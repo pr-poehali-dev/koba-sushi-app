@@ -117,8 +117,8 @@ const Index = () => {
           <div className="flex items-center gap-3">
             <div className="text-4xl">🍣</div>
             <div>
-              <h1 className="text-3xl font-bold text-red-600">TOKYO</h1>
-              <p className="text-sm text-gray-600">東京寿司バー</p>
+              <h1 className="text-3xl font-bold text-red-600">КОБА</h1>
+              <p className="text-sm text-gray-600">Суши-Бар Кафе</p>
             </div>
           </div>
           
@@ -202,7 +202,7 @@ const Index = () => {
           <div className="text-9xl font-bold absolute bottom-10 right-10">和食</div>
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-5xl md:text-7xl font-bold mb-4">Суши-бар TOKYO</h2>
+          <h2 className="text-5xl md:text-7xl font-bold mb-4">Суши-Бар Кафе КОБА</h2>
           <p className="text-xl md:text-2xl mb-8">Традиционная японская кухня в сердце города</p>
           <Button size="lg" variant="secondary" className="bg-white text-red-600 hover:bg-gray-100">
             <a href="#menu">Смотреть меню</a>
@@ -380,7 +380,7 @@ const Index = () => {
                 <Icon name="Mail" size={24} className="text-red-600 mt-1" />
                 <div>
                   <h3 className="font-bold mb-1">Email</h3>
-                  <p className="text-gray-600">info@koba-sushi.ru</p>
+                  <p className="text-gray-600">info@koba-cafe.ru</p>
                 </div>
               </div>
             </div>
@@ -401,9 +401,9 @@ const Index = () => {
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4 text-center">
           <div className="text-4xl mb-4">🍣</div>
-          <h3 className="text-2xl font-bold mb-2">TOKYO</h3>
-          <p className="text-gray-400 mb-4">東京寿司バー</p>
-          <p className="text-sm text-gray-500">© 2026 Суши-бар TOKYO. Все права защищены.</p>
+          <h3 className="text-2xl font-bold mb-2">КОБА</h3>
+          <p className="text-gray-400 mb-4">Суши-Бар Кафе</p>
+          <p className="text-sm text-gray-500">© 2026 Суши-Бар Кафе КОБА. Все права защищены.</p>
         </div>
       </footer>
     </div>
