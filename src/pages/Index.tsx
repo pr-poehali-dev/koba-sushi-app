@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+
 import Icon from '@/components/ui/icon';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -46,6 +45,7 @@ const reviews = [
 const Index = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [activeCategory, setActiveCategory] = useState('rolls');
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const addToCart = (item: MenuItem) => {
     setCart(prev => {
@@ -92,59 +92,72 @@ const Index = () => {
             <a href="#contacts" className="text-gray-700 hover:text-red-600 transition-colors">Контакты</a>
           </nav>
 
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="relative border-red-600 hover:bg-red-50">
-                <Icon name="ShoppingCart" size={20} className="text-red-600" />
-                {totalItems > 0 && (
-                  <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 bg-red-600">
-                    {totalItems}
-                  </Badge>
-                )}
-              </Button>
-            </SheetTrigger>
-            <SheetContent>
-              <SheetHeader>
-                <SheetTitle>Корзина</SheetTitle>
-              </SheetHeader>
-              <div className="mt-6 space-y-4">
-                {cart.length === 0 ? (
-                  <p className="text-center text-gray-500 py-8">Корзина пуста</p>
-                ) : (
-                  <>
-                    {cart.map(item => (
-                      <div key={item.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                        <div className="flex-1">
-                          <p className="font-medium">{item.name}</p>
-                          <p className="text-sm text-gray-600">{item.price} ₽</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Button size="icon" variant="outline" className="h-8 w-8" onClick={() => removeFromCart(item.id)}>
-                            <Icon name="Minus" size={14} />
-                          </Button>
-                          <span className="w-8 text-center">{item.quantity}</span>
-                          <Button size="icon" variant="outline" className="h-8 w-8" onClick={() => addToCart(item)}>
-                            <Icon name="Plus" size={14} />
-                          </Button>
-                        </div>
-                      </div>
-                    ))}
-                    <div className="border-t pt-4 mt-4">
-                      <div className="flex justify-between text-lg font-bold mb-4">
-                        <span>Итого:</span>
-                        <span>{totalPrice} ₽</span>
-                      </div>
-                      <Button className="w-full bg-red-600 hover:bg-red-700">
-                        Оформить заказ
-                      </Button>
-                    </div>
-                  </>
-                )}
-              </div>
-            </SheetContent>
-          </Sheet>
+          <Button 
+            variant="outline" 
+            size="icon" 
+            className="relative border-red-600 hover:bg-red-50"
+            onClick={() => setIsCartOpen(!isCartOpen)}
+          >
+            <Icon name="ShoppingCart" size={20} className="text-red-600" />
+            {totalItems > 0 && (
+              <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 bg-red-600">
+                {totalItems}
+              </Badge>
+            )}
+          </Button>
         </div>
       </header>
+
+      {isCartOpen && (
+        <div className="fixed inset-0 z-50 bg-black/50" onClick={() => setIsCartOpen(false)}>
+          <div 
+            className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-xl p-6 overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold">Корзина</h2>
+              <Button variant="ghost" size="icon" onClick={() => setIsCartOpen(false)}>
+                <Icon name="X" size={24} />
+              </Button>
+            </div>
+            
+            <div className="space-y-4">
+              {cart.length === 0 ? (
+                <p className="text-center text-gray-500 py-8">Корзина пуста</p>
+              ) : (
+                <>
+                  {cart.map(item => (
+                    <div key={item.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <div className="flex-1">
+                        <p className="font-medium">{item.name}</p>
+                        <p className="text-sm text-gray-600">{item.price} ₽</p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Button size="icon" variant="outline" className="h-8 w-8" onClick={() => removeFromCart(item.id)}>
+                          <Icon name="Minus" size={14} />
+                        </Button>
+                        <span className="w-8 text-center">{item.quantity}</span>
+                        <Button size="icon" variant="outline" className="h-8 w-8" onClick={() => addToCart(item)}>
+                          <Icon name="Plus" size={14} />
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                  <div className="border-t pt-4 mt-4">
+                    <div className="flex justify-between text-lg font-bold mb-4">
+                      <span>Итого:</span>
+                      <span>{totalPrice} ₽</span>
+                    </div>
+                    <Button className="w-full bg-red-600 hover:bg-red-700">
+                      Оформить заказ
+                    </Button>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       <section className="py-20 bg-gradient-to-r from-red-600 to-orange-500 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -166,36 +179,56 @@ const Index = () => {
           <p className="text-gray-600">私たちのメニュー</p>
         </div>
 
-        <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
-          <TabsList className="grid grid-cols-4 w-full max-w-2xl mx-auto mb-8">
-            <TabsTrigger value="rolls">Роллы</TabsTrigger>
-            <TabsTrigger value="nigiri">Нигири</TabsTrigger>
-            <TabsTrigger value="sashimi">Сашими</TabsTrigger>
-            <TabsTrigger value="other">Другое</TabsTrigger>
-          </TabsList>
+        <div className="flex justify-center gap-2 mb-8 flex-wrap">
+          <Button 
+            variant={activeCategory === 'rolls' ? 'default' : 'outline'}
+            onClick={() => setActiveCategory('rolls')}
+            className={activeCategory === 'rolls' ? 'bg-red-600 hover:bg-red-700' : ''}
+          >
+            Роллы
+          </Button>
+          <Button 
+            variant={activeCategory === 'nigiri' ? 'default' : 'outline'}
+            onClick={() => setActiveCategory('nigiri')}
+            className={activeCategory === 'nigiri' ? 'bg-red-600 hover:bg-red-700' : ''}
+          >
+            Нигири
+          </Button>
+          <Button 
+            variant={activeCategory === 'sashimi' ? 'default' : 'outline'}
+            onClick={() => setActiveCategory('sashimi')}
+            className={activeCategory === 'sashimi' ? 'bg-red-600 hover:bg-red-700' : ''}
+          >
+            Сашими
+          </Button>
+          <Button 
+            variant={activeCategory === 'other' ? 'default' : 'outline'}
+            onClick={() => setActiveCategory('other')}
+            className={activeCategory === 'other' ? 'bg-red-600 hover:bg-red-700' : ''}
+          >
+            Другое
+          </Button>
+        </div>
 
-          <TabsContent value={activeCategory}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredItems.map(item => (
-                <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="p-6">
-                    <div className="text-6xl mb-4 text-center">{item.image}</div>
-                    <h3 className="text-xl font-bold mb-1">{item.name}</h3>
-                    <p className="text-sm text-gray-500 mb-2">{item.nameJp}</p>
-                    <p className="text-sm text-gray-600 mb-4">{item.description}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold text-red-600">{item.price} ₽</span>
-                      <Button onClick={() => addToCart(item)} className="bg-red-600 hover:bg-red-700">
-                        <Icon name="Plus" size={16} className="mr-1" />
-                        В корзину
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
-        </Tabs>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredItems.map(item => (
+            <Card key={item.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="p-6">
+                <div className="text-6xl mb-4 text-center">{item.image}</div>
+                <h3 className="text-xl font-bold mb-1">{item.name}</h3>
+                <p className="text-sm text-gray-500 mb-2">{item.nameJp}</p>
+                <p className="text-sm text-gray-600 mb-4">{item.description}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold text-red-600">{item.price} ₽</span>
+                  <Button onClick={() => addToCart(item)} className="bg-red-600 hover:bg-red-700">
+                    <Icon name="Plus" size={16} className="mr-1" />
+                    В корзину
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
       </section>
 
       <section id="gallery" className="py-16 bg-gray-50">
